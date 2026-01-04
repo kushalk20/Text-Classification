@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ner-classifier-deployment
+  name: text-classifier-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ner-classifier
+      app: text-classifier
   template:
     metadata:
       labels:
-        app: ner-classifier
+        app: text-classifier
     spec:
       containers:
-      - name: ner-classifier
-        image: classifier.azurecr.io/ner_classifier:v2
+      - name: text-classifier
+        image: classifier.azurecr.io/text_classifier:v2
         ports:
         - containerPort: 8000
         resources:
@@ -25,11 +25,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ner-classifier-service
+  name: text-classifier-service
 spec:
   type: LoadBalancer
   selector:
-    app: ner-classifier
+    app: text-classifier
   ports:
     - port: 80
       targetPort: 8000
