@@ -1,5 +1,5 @@
 
-# 🎯 Text Classification API Service
+# 🎯 IT Support Ticket Classifier API
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.119.0-brightgreen?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com) 
 [![Docker](https://img.shields.io/badge/Docker-Containerized-blue)](https://docker.com) 
