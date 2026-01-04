@@ -4,9 +4,6 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassifica
 import uvicorn
 import os
 
-# Dataset used to Fine Tune the model: AG News Dataset (https://huggingface.co/datasets/fancyzhx/ag_news)
-# Model used to Fine Tune: bert-base-uncased (https://huggingface.co/google-bert/bert-base-uncased)
-
 # Initialize FastAPI app
 app = FastAPI(title="Text Classification API")
 
