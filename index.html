@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NER Classifier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      padding: 40px;
+      text-align: center;
+    }
+    textarea {
+      width: 80%;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 25px;
+      padding: 10px;
+      font-size: 18px;
+      background: #fff;
+      border-radius: 5px;
+      display: inline-block;
+      min-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Named Entity Recognition Classifier</h1>
+  <p>Enter text below and click <b>Classify</b>:</p>
+
+  <textarea id="inputText" placeholder="Type text here..."></textarea><br />
+  <button onclick="classify()">Classify</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function classify() {
+      const text = document.getElementById("inputText").value;
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "Processing...";
+
+      try {
+        const response = await fetch("http://135.234.233.94/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text })
+        });
+
+        const data = await response.json();
+        resultDiv.innerHTML = "<b>Prediction:</b> " + JSON.stringify(data);
+      } catch (error) {
+        resultDiv.innerHTML = "<span style='color:red;'>Error connecting to API</span>";
+      }
+    }
+  </script>
+</body>
+</html>
