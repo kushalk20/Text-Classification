@@ -13,7 +13,6 @@
 
 ## 🚀 Features
 
-- **BERT-base-uncased** fine-tuned with **PEFT LoRA** (0.1% trainable params)
 - **FastAPI** production API with automatic Swagger docs (`/docs`)
 - **Static HTML UI** for instant ticket classification
 - **Docker** container with bundled 400MB model
